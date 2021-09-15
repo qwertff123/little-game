@@ -1,0 +1,264 @@
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.iconfont.icon-xihuan {
+    color: #fa4646;
+}
+
+.player {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: #eee;
+    position: relative;
+    display: flex;
+    align-items: center;
+    .content {
+        width: 100%;
+        &>.info {
+            width: 100%;
+            height: 40%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .image {
+                width: 15rem;
+                height: 15rem;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            .name {
+                font-size: 20px;
+                font-weight: bolder;
+                padding: 20px 0;
+            }
+
+            .author {
+                font-size: 12px;
+                font-weight: 600;
+            }
+        }
+
+        .tool {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            margin:20px 0;
+
+            li {
+                flex: 1 1 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                span.iconfont {
+                    font-size: 20px;
+                }
+
+                &.islike,
+                &.unlove {
+                    span.iconfont {
+                        font-size: 16px;
+                    }
+                }
+
+                &.islike {
+                    position: relative;
+
+                    span {
+                        position: absolute;
+                    }
+
+                    .normal.iconfont {
+                        font-size: 15px;
+                    }
+
+                    &.love {
+                        .normal {
+                            display: none;
+                        }
+                    }
+
+                    &.normal {
+                        .love {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        // // .progress-bar{
+        // //     margin:20px 0;
+        // // }
+
+        .control {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            margin: 40px 0;
+            li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1 1 auto;
+
+                &.play-order .iconfont {
+                    font-size: 18px;
+                }
+
+                &.music-list .iconfont {
+                    font-size: 20px;
+                }
+
+                &.next {
+                    transform: rotateZ(180deg);
+                }
+
+                &.center {
+                    flex: 0 0 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    position: relative;
+
+                    span {
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 60px;
+                        color: rgba(255, 255, 255, 0.4);
+                    }
+                }
+            }
+        }
+    }
+
+
+    .music-list {
+        align-self: flex-end;
+        flex:0 0 auto;
+        height: 40%;
+        background-color: white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+        border-radius: 20px 20px 0 0;
+        color: black;
+        padding: 0 10px;
+        box-sizing: border-box;
+
+        &.show {
+            transform: translateY(0);
+        }
+
+        .close {
+            height: 40px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+        }
+
+        .list {
+            width: 100%;
+            height: calc(100% - 40px);
+            overflow-y: auto;
+
+            &::-webkit-scrollbar{
+                width:3px;
+            }
+            &::-webkit-scrollbar-thumb{
+                width:5px;
+                background-color:#eee;
+                border-radius: 3px;
+            }
+
+            .item {
+                width: 100%;
+                height: 60px;
+                border-bottom: 1px solid rgb(243, 241, 241);
+                box-sizing: border-box;
+                position: relative;
+                padding: 0 10px;
+                cursor: pointer;
+                border-left:6px solid transparent;
+                &:hover{
+                    border-left-color:rgba(12, 240, 240, 0.2);
+                }
+                &.play {
+                    // // background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+                    background-image: linear-gradient(360deg,
+                            rgba(12, 240, 240, 0.2),
+                            transparent);
+
+                    .name {
+                        color: rgba(2, 117, 247, 0.5);
+                    }
+                }
+
+                .name {
+                    font-size: 16px;
+                    font-weight: bolder;
+                    margin-bottom: 5px;
+                    padding-top: 8px;
+                }
+
+                .info {
+                    font-size: 12px;
+                    color: rgb(182, 180, 180);
+                }
+
+                .islike {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translate(0, -50%);
+                    width: 30px;
+                    height: 30px;
+
+                    span {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 16px;
+                    }
+
+                    .normal.iconfont {
+                        font-size: 15px;
+                    }
+
+                    &.love {
+                        .normal {
+                            display: none;
+                        }
+                    }
+
+                    &.normal {
+                        .love {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
